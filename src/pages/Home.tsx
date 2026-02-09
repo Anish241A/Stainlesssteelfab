@@ -1,7 +1,7 @@
 import { Phone, MessageCircle, FileText, Shield, Award, Users, Wrench, Target, CheckCircle } from 'lucide-react';
 
 export default function Home() {
-  const phoneNumber = '919876543210';
+  const phoneNumber = '919717523139';
   const whatsappMessage = encodeURIComponent(
     'Hi! I would like to know more about your stainless steel fabrication services.'
   );
@@ -32,7 +32,7 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
               <a
-                href="tel:+919876543210"
+                href="tel:+918178668710"
                 className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white font-bold rounded-lg transition-all transform hover:scale-105 flex items-center justify-center space-x-2 shadow-lg"
               >
                 <Phone size={20} />
@@ -157,11 +157,11 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="tel:+919876543210"
+              href="tel:+918178668710"
               className="w-full sm:w-auto px-8 py-4 bg-white text-zinc-900 font-bold rounded-lg hover:bg-gray-200 transition-all transform hover:scale-105 flex items-center justify-center space-x-2 shadow-lg"
             >
               <Phone size={20} />
-              <span>+91 98765 43210</span>
+              <span>+91 81786 68710</span>
             </a>
             <a
               href={`https://wa.me/${phoneNumber}?text=${whatsappMessage}`}

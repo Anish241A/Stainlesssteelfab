@@ -69,10 +69,10 @@ export default function Footer({ onNavigate }: FooterProps) {
               <li className="flex items-start space-x-3 text-sm">
                 <Phone size={18} className="text-gray-400 mt-0.5 flex-shrink-0" />
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+918178668710"
                   className="text-gray-400 hover:text-gray-200 transition-colors"
                 >
-                  +91 98765 43210
+                  +91 81786 68710
                 </a>
               </li>
               <li className="flex items-start space-x-3 text-sm">

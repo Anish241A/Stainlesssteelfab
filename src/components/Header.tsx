@@ -58,7 +58,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
               </button>
             ))}
             <a
-              href="tel:+919876543210"
+              href="tel:+918178668710"
               className="ml-4 px-6 py-2 bg-gradient-to-r from-gray-500 to-gray-600 text-white font-semibold rounded-lg hover:from-gray-600 hover:to-gray-700 transition-all flex items-center space-x-2"
             >
               <Phone size={18} />
@@ -92,7 +92,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
               </button>
             ))}
             <a
-              href="tel:+919876543210"
+              href="tel:+918178668710"
               className="px-4 py-3 bg-gradient-to-r from-gray-500 to-gray-600 text-white font-semibold rounded-lg text-center flex items-center justify-center space-x-2"
             >
               <Phone size={18} />

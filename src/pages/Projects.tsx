@@ -233,10 +233,10 @@ export default function Projects() {
             Let's create something exceptional together. Contact us for a free consultation.
           </p>
           <a
-            href="tel:+919876543210"
+            href="tel:+918178668710"
             className="inline-block px-8 py-4 bg-white text-zinc-900 font-bold rounded-lg hover:bg-gray-200 transition-all transform hover:scale-105 shadow-lg"
           >
-            Call Us Now: +91 98765 43210
+            Call Us Now: +91 81786 68710
           </a>
         </div>
       </section>

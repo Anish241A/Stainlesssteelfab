@@ -11,20 +11,51 @@ export default function Contact() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        message: '',
-      });
-    }, 3000);
+    setLoading(true);
+    setError('');
+
+    try {
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+      const response = await fetch(
+        `${supabaseUrl}/functions/v1/send_lead_notification`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${anonKey}`,
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
+
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: '',
+        });
+      }, 3000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong');
+      console.error('Form submission error:', err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (
@@ -36,7 +67,7 @@ export default function Contact() {
     });
   };
 
-  const phoneNumber = '919876543210';
+  const phoneNumber = '919717523139';
   const whatsappMessage = encodeURIComponent(
     'Hi! I would like to know more about your stainless steel fabrication services.'
   );
@@ -70,10 +101,10 @@ export default function Contact() {
                   <div>
                     <h3 className="text-white font-semibold mb-1">Phone</h3>
                     <a
-                      href="tel:+919876543210"
+                      href="tel:+918178668710"
                       className="text-gray-400 hover:text-gray-200 transition-colors"
                     >
-                      +91 98765 43210
+                      +91 81786 68710
                     </a>
                   </div>
                 </div>
@@ -231,14 +262,24 @@ export default function Contact() {
                   ></textarea>
                 </div>
 
+                {error && (
+                  <div className="p-4 bg-red-500/10 border border-red-500/50 rounded-lg">
+                    <p className="text-red-400 text-sm">{error}</p>
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  disabled={submitted}
+                  disabled={submitted || loading}
                   className="w-full px-6 py-4 bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white font-bold rounded-lg transition-all transform hover:scale-105 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {submitted ? (
                     <>
-                      <span>Message Sent!</span>
+                      <span>Message Sent! Thanks for your interest.</span>
+                    </>
+                  ) : loading ? (
+                    <>
+                      <span>Submitting...</span>
                     </>
                   ) : (
                     <>
@@ -287,11 +328,11 @@ export default function Contact() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="tel:+919876543210"
+              href="tel:+918178668710"
               className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white font-bold rounded-lg transition-all transform hover:scale-105 flex items-center justify-center space-x-2 shadow-lg"
             >
               <Phone size={20} />
-              <span>+91 98765 43210</span>
+              <span>+91 81786 68710</span>
             </a>
             <a
               href={`https://wa.me/${phoneNumber}?text=${whatsappMessage}`}
