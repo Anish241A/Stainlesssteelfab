@@ -76,6 +76,36 @@ Stainless Steel Fabrication
 Lead Management System
     `;
 
+    const web3formsAccessKey = Deno.env.get("WEB3FORMS_ACCESS_KEY");
+    if (!web3formsAccessKey) {
+      console.warn("Web3Forms access key not configured, skipping email notification");
+    } else {
+      try {
+        const emailResponse = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            access_key: web3formsAccessKey,
+            name: payload.name,
+            email: payload.email,
+            phone: payload.phone,
+            service: payload.service,
+            message: payload.message,
+          }),
+        });
+
+        if (emailResponse.ok) {
+          console.log("Email sent successfully to:", notificationEmail);
+        } else {
+          console.warn("Web3Forms email send failed:", await emailResponse.text());
+        }
+      } catch (emailError) {
+        console.error("Error sending email via Web3Forms:", emailError);
+      }
+    }
+
     console.log("Lead saved successfully:", payload.name);
 
     return new Response(

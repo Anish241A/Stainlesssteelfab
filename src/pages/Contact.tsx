@@ -275,7 +275,7 @@ export default function Contact() {
                 >
                   {submitted ? (
                     <>
-                      <span>Message Sent! Thanks for your interest.</span>
+                      <span>Thank you! We will contact you within 24 hours.</span>
                     </>
                   ) : loading ? (
                     <>
