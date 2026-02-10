@@ -67,7 +67,7 @@ export default function Contact() {
     });
   };
 
-  const phoneNumber = '919717523139';
+  const phoneNumber = '918178668710';
   const whatsappMessage = encodeURIComponent(
     'Hi! I would like to know more about your stainless steel fabrication services.'
   );
