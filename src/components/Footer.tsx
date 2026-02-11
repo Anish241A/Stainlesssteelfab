@@ -78,10 +78,10 @@ export default function Footer({ onNavigate }: FooterProps) {
               <li className="flex items-start space-x-3 text-sm">
                 <Mail size={18} className="text-gray-400 mt-0.5 flex-shrink-0" />
                 <a
-                  href="mailto:info@ssfabrication.in"
+                  href="mailto:xkumar9708@gmail.com"
                   className="text-gray-400 hover:text-gray-200 transition-colors"
                 >
-                  info@ssfabrication.in
+                  xkumar9708@gmail.com
                 </a>
               </li>
               <li className="flex items-start space-x-3 text-sm">

@@ -57,7 +57,7 @@ Deno.serve(async (req: Request) => {
       throw new Error(`Database insert failed: ${error}`);
     }
 
-    const notificationEmail = Deno.env.get("BUSINESS_EMAIL") || "info@ssfabrication.in";
+    const notificationEmail = Deno.env.get("BUSINESS_EMAIL") || "xkumar9708@gmail.com";
 
     const emailBody = `
 New Lead Submission
